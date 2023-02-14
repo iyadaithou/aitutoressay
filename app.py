@@ -4,7 +4,9 @@ from datetime import datetime
 from streamlit.components.v1 import html
 import pandas as pd
 import csv
-st.set_page_config(page_title="Brainstorming Buddy")
+
+
+st.set_page_config(page_title="Brainlyne Essay Editor")
 
 
 html_temp = """
@@ -31,7 +33,7 @@ with st.sidebar:
     """)
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
     st.markdown("""
-    Made by [@nainia_ayoub](https://twitter.com/nainia_ayoub)
+    Made by Brainlyne
     """,
     unsafe_allow_html=True,
     )
@@ -113,10 +115,10 @@ st.markdown(
     unsafe_allow_html=True,
 )
 if input_text:
-    prompt = "Brainstorm ideas for "+str(input_text)
+    prompt = "Elaborate this personal essay to make it personal and wirte it from the personal perspective, make it with a creative writing style and focus on the personal story "+str(input_text)
     if prompt:
         openai.api_key = st.secrets["openaiKey"]
-        response = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=150)
+        response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=1050)
         brainstorming_output = response['choices'][0]['text']
         today = datetime.today().strftime('%Y-%m-%d')
         topic = "Brainstorming ideas for: "+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
@@ -124,7 +126,7 @@ if input_text:
         st.info(brainstorming_output)
         filename = "brainstorming_"+str(today)+".txt"
         btn = st.download_button(
-            label="Download txt",
+            label="Download Essay",
             data=topic,
             file_name=filename
         )
