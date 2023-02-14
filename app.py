@@ -39,20 +39,7 @@ with st.sidebar:
     unsafe_allow_html=True,
     )
 
-footer {
-	
-	visibility: hidden;
-	
-	}
-footer:after {
-	content:'goodbye'; 
-	visibility: visible;
-	display: block;
-	position: relative;
-	#background-color: red;
-	padding: 5px;
-	top: 2px;
-}
+
 
 input_text = None
 if 'output' not in st.session_state:
