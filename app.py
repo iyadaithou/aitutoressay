@@ -39,6 +39,20 @@ with st.sidebar:
     unsafe_allow_html=True,
     )
 
+footer {
+	
+	visibility: hidden;
+	
+	}
+footer:after {
+	content:'goodbye'; 
+	visibility: visible;
+	display: block;
+	position: relative;
+	#background-color: red;
+	padding: 5px;
+	top: 2px;
+}
 
 input_text = None
 if 'output' not in st.session_state:
@@ -46,7 +60,7 @@ if 'output' not in st.session_state:
 
 if st.session_state['output'] <=2:
     st.markdown("""
-    # Brainlyne Essay AI 
+    # Brainlyne Essay Brainstormer - AI
     """)
     input_text = st.text_input("Write your essay or your prompt", disabled=False, placeholder="Paste your prompt, idea, or essay here!")
     st.session_state['output'] = st.session_state['output'] + 1
