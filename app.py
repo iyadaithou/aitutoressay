@@ -15,6 +15,10 @@ html_temp = """
                 </div>
                 """
 
+button = """
+<script type="text/javascript" src="https://brainlyne.com" data-name="bmc-button" data-slug="nainiayoub" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Join Brainlyne" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+"""
+
 
 with st.sidebar:
     st.markdown("""
@@ -117,7 +121,7 @@ if input_text:
         response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=1050)
         brainstorming_output = response['choices'][0]['text']
         today = datetime.today().strftime('%Y-%m-%d')
-        topic = "Essay: "+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
+        topic = "Essay"+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
         
         st.info(brainstorming_output)
         filename = "brainstorming_"+str(today)+".txt"
