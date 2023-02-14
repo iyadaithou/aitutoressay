@@ -47,7 +47,7 @@ if st.session_state['output'] <=2:
     st.markdown("""
     # Brainlyne Essay AI 
     """)
-    input_text = st.text_input("Write your written essay or your prompt", disabled=False, placeholder="What's on your mind?")
+    input_text = st.text_input("Write your essay or your prompt", disabled=False, placeholder="Please, paster your essay!")
     st.session_state['output'] = st.session_state['output'] + 1
 else:
     # input_text = st.text_input("Brainstorm ideas for", disabled=True)
@@ -118,7 +118,7 @@ if input_text:
     prompt = "Elaborate this personal essay to make it personal and wirte it from the personal perspective, make it with a creative writing style and focus on the personal story "+str(input_text)
     if prompt:
         openai.api_key = st.secrets["openaiKey"]
-        response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=1050)
+        response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=800)
         brainstorming_output = response['choices'][0]['text']
         today = datetime.today().strftime('%Y-%m-%d')
         topic = "Essay"+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
