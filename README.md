@@ -4,7 +4,7 @@
 ![forks badge](https://img.shields.io/github/forks/nainiayoub/brainstorming-buddy)
 ![starts badge](https://img.shields.io/github/stars/nainiayoub/brainstorming-buddy)
 
-Brainstorming Buddy is a small streamlit helper tool that I built on GPT-3 to help me generate ideas and identify points to expand on, giving a specific topic.
+Brainlyne Essay Editor helps generate and brainstorm ideas for essays, you will no longer be stuck in front of a blank page!
 
 _Featured on [Streamlit gallery](https://streamlit.io/gallery?category=nlp-language) for NLP & Language._
 
