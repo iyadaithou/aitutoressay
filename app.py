@@ -23,13 +23,13 @@ button = """
 with st.sidebar:
     st.markdown("""
     # About 
-    Brainstorming Buddy is a helper tool built on GPT-3 to generate ideas on a given topic. 
+    Brainlyne Essay Support is a helper tool built and tuned to support with the generation of ideas for essays
     """)
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
     st.markdown("""
     # How does it work
     Simply enter the topic of interest in the text field below and ideas will be generated.
-    You can also download the output as txt.
+    You can also download the essay as txt.
     """)
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
     st.markdown("""
@@ -45,9 +45,9 @@ if 'output' not in st.session_state:
 
 if st.session_state['output'] <=2:
     st.markdown("""
-    # Brainstorming Buddy
+    # Brainlyne Essay AI 
     """)
-    input_text = st.text_input("Brainstorm ideas for", disabled=False, placeholder="What's on your mind?")
+    input_text = st.text_input("Write your written essay or your prompt", disabled=False, placeholder="What's on your mind?")
     st.session_state['output'] = st.session_state['output'] + 1
 else:
     # input_text = st.text_input("Brainstorm ideas for", disabled=True)
@@ -121,7 +121,7 @@ if input_text:
         response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=1050)
         brainstorming_output = response['choices'][0]['text']
         today = datetime.today().strftime('%Y-%m-%d')
-        topic = "Brainstorming ideas for: "+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
+        topic = "Essay: "+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
         
         st.info(brainstorming_output)
         filename = "brainstorming_"+str(today)+".txt"
