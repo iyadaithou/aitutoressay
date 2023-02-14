@@ -115,7 +115,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 if input_text:
-    prompt = "Elaborate this personal essay to make it personal and wirte it from the personal perspective, make it with a creative writing style and focus on the personal story "+str(input_text)
+    prompt = "Elaborate or write this essay to make it personal and wirte it from the personal perspective, make it with a creative writing style and focus on the personal story   "+str(input_text)
     if prompt:
         openai.api_key = st.secrets["openaiKey"]
         response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=800)
