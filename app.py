@@ -5,6 +5,13 @@ from streamlit.components.v1 import html
 import pandas as pd
 import csv
 
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 st.set_page_config(page_title="Brainlyne Essay Editor")
 
@@ -47,17 +54,12 @@ if st.session_state['output'] <=2:
     st.markdown("""
     # Brainlyne Essay AI 
     """)
-    input_text = st.text_input("Write your essay or your prompt", disabled=False, placeholder="Please, paste your essay!")
+    input_text = st.text_input("Write your essay or your prompt", disabled=False, placeholder="Paste your prompt, idea, or essay here!")
     st.session_state['output'] = st.session_state['output'] + 1
 else:
     # input_text = st.text_input("Brainstorm ideas for", disabled=True)
     st.info("Thank you! Refresh for more brainstorming💡")
     st.markdown('''
-    <a target="_blank" style="color: black" href="https://twitter.com/intent/tweet?text=I%20just%20used%20the%20Brainstorming%20Buddy%20streamlit%20helper%20tool%20by%20@nainia_ayoub!%0A%0Ahttps://brainstorming-buddy.streamlit.app/">
-        <button class="btn">
-            Tweet about this!
-        </button>
-    </a>
     <style>
     .btn{
         display: inline-flex;
