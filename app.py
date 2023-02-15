@@ -47,7 +47,7 @@ if 'output' not in st.session_state:
 
 if st.session_state['output'] <=2:
     st.markdown("""
-    # Brainlyne Essay Brainstormer - AI
+    # Brainlyne Story Teller- AI
     """)
     input_text = st.text_input("Write your essay or your prompt", disabled=False, placeholder="Paste your prompt, idea, or essay here!")
     st.session_state['output'] = st.session_state['output'] + 1
